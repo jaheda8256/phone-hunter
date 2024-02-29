@@ -35,7 +35,8 @@ if(!isShowAll){
         <figure><img src="${phone.image}" alt="Shoes" /></figure>
     <div class="card-body">
         <h2 class="card-title">${phone.phone_name}</h2>
-        <p>If a dog chews shoes whose shoes does he choose?</p>
+        <p>There are many variations of passages of available, but the majority have suffered</p>
+        <h4 class="font-bold text-center">$999</h4>
         <div class="card-actions justify-center">
         <button onclick="handleShowDetail('${phone.slug}')" class="btn btn-primary">Show Details</button>
         </div>
@@ -65,22 +66,31 @@ const showPhoneDetails = (phone) =>{
     const showDetailContainer = document.getElementById('show-detail-container');
     showDetailContainer.innerHTML = `
      <img src="${phone.image}" alt=""/>
-     <h3 id="show-details-phone-name" class="font-bold text-3xl my-4">${phone.name}</h3>
+     <h3 id="show-details-phone-name" class="font-bold text-3xl my-4">${phone.name}</h3><br>
+     <hr>
      <p class="my-4">It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout.</p>
-     <p><span class="font-bold">Storage:</span>${phone?.mainFeatures?.storage}</p>
-     <p><span class="font-bold">displaySize:</span>
+     <hr>
+     <p><span class="font-bold">Storage:</span>${phone?.mainFeatures?.storage}</p><br>
+     <hr>
+     <p class="my-4"><span class="font-bold">displaySize:</span>
      ${phone?.mainFeatures?.displaySize}</p>
+     <hr>
      <p><span class="font-bold">chipSet:</span>
-     ${phone?.mainFeatures?.chipSet}</p>
-     <p><span class="font-bold">memory:</span>
+     ${phone?.mainFeatures?.chipSet}</p><br>
+     <hr>
+     <p class="my-4"><span class="font-bold">memory:</span>
      ${phone?.mainFeatures?.memory}</p>
+     <hr>
      <p><span class="font-bold">GPS:</span>
-     ${phone?.others?.GPS || 'No GPS'}</p>
-     <p><span class="font-bold">releaseDate:</span>
+     ${phone?.others?.GPS || 'No GPS'}</p><br>
+     <hr>
+     <p class="my-4"><span class="font-bold">releaseDate:</span>
      ${phone?.releaseDate || 'No releaseData'}</p>
+     <hr>
      <p><span class="font-bold">Slug:</span>
-     ${phone?.slug}</p>
-     <p><span class="font-bold">Brand:</span>
+     ${phone?.slug}</p><br>
+     <hr>
+     <p class="my-4"><span class="font-bold">Brand:</span>
      ${phone?.brand}</p>
     `
     // show the modal
