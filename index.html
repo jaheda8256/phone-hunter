@@ -16,8 +16,8 @@
             <input id="search-field" type="text" placeholder="search..." class="input input-bordered w-full max-w-xs" />
             <button onclick="handleSearch()" class="btn btn-accent">search</button>
             <!-- another search field -->
-            <input id="search-field2" type="text" placeholder="search here" class="input input-bordered w-full max-w-xs" />
-            <button onclick="handleSearch2()" class="btn btn-primary">Search</button>
+            <!-- <input id="search-field2" type="text" placeholder="search here" class="input input-bordered w-full max-w-xs" />
+            <button onclick="handleSearch2()" class="btn btn-primary">Search</button> -->
         </section>
         <!-- search result -->
         <section>
@@ -29,10 +29,26 @@
           
             </div>
             <!-- show all button -->
-            <div id="show-all-container" class="hidden">
-                <button class="btn btn-accent">Show All</button>
+            <div id="show-all-container" class="hidden text-center my-8">
+                <button onclick="handleShowAll()" class="btn btn-accent">Show All</button>
             </div>
         </section>
+
+        <!-- show details modal -->
+        <!-- Open the modal using ID.showModal() method -->
+<button class="btn" onclick="show_details_modal.showModal()">open modal</button>
+<dialog id="show_details_modal" class="modal modal-bottom sm:modal-middle">
+  <div class="modal-box">
+    <h3 class="font-bold text-lg">Hello!</h3>
+    <p class="py-4">Press ESC key or click the button below to close</p>
+    <div class="modal-action">
+      <form method="dialog">
+        <!-- if there is a button in form, it will close the modal -->
+        <button class="btn">Close</button>
+      </form>
+    </div>
+  </div>
+</dialog>
     </main>
     <footer>
 
