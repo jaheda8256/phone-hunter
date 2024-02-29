@@ -59,12 +59,13 @@ const handleShowDetail = async (id) =>{
 
 const showPhoneDetails = (phone) =>{
     console.log(phone);
-    const phoneName = document.getElementById('show-details-phone-name');
-    phoneName.innerText = phone.name;
+    // const phoneName = document.getElementById('show-details-phone-name');
+    // phoneName.innerText = phone.name;
 
     const showDetailContainer = document.getElementById('show-detail-container');
     showDetailContainer.innerHTML = `
      <img src="${phone.image}" alt=""/>
+     <h3 id="show-details-phone-name" class="font-bold text-3xl my-4">${phone.name}</h3>
      <p class="my-4">It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout.</p>
      <p><span class="font-bold">Storage:</span>${phone?.mainFeatures?.storage}</p>
      <p><span class="font-bold">displaySize:</span>
