@@ -7,7 +7,7 @@ const loadPhone = async(searchText,isShowAll) =>{
 } 
 
 const displayPhones = (phones,isShowAll) =>{
-    console.log(phones)
+    // console.log(phones)
     const phoneContainer = document.getElementById('phone-container');
 // clear phone container cards  before adding new cards 
 phoneContainer.textContent = '';
@@ -18,7 +18,7 @@ if(phones.length > 12 && !isShowAll){
 else{
     showAllContainer.classList.add('hidden');
 }
-console.log('is show all',isShowAll)
+// console.log('is show all',isShowAll)
 // display only first 12 phones
 if(!isShowAll){
     phones = phones.slice(0,12);
@@ -26,7 +26,7 @@ if(!isShowAll){
 
 
     phones.forEach(phone => {
-        console.log(phone);
+        // console.log(phone);
         // 2 create a phone
         const phoneCard = document.createElement('div');
         phoneCard.classList = `card bg-gray-100 p-4 shadow-xl`;
@@ -50,11 +50,42 @@ if(!isShowAll){
 }
 
 const handleShowDetail = async (id) =>{
-    console.log('click', id);
+    // console.log('click', id);
     const res = await fetch(`https://openapi.programming-hero.com/api/phone/${id}`);
     const data = await res.json();
-    console.log(data);
+    const phone = data.data;
+    showPhoneDetails(phone);
 }
+
+const showPhoneDetails = (phone) =>{
+    console.log(phone);
+    const phoneName = document.getElementById('show-details-phone-name');
+    phoneName.innerText = phone.name;
+
+    const showDetailContainer = document.getElementById('show-detail-container');
+    showDetailContainer.innerHTML = `
+     <img src="${phone.image}" alt=""/>
+     <p class="my-4">It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout.</p>
+     <p><span class="font-bold">Storage:</span>${phone?.mainFeatures?.storage}</p>
+     <p><span class="font-bold">displaySize:</span>
+     ${phone?.mainFeatures?.displaySize}</p>
+     <p><span class="font-bold">chipSet:</span>
+     ${phone?.mainFeatures?.chipSet}</p>
+     <p><span class="font-bold">memory:</span>
+     ${phone?.mainFeatures?.memory}</p>
+     <p><span class="font-bold">GPS:</span>
+     ${phone?.others?.GPS || 'No GPS'}</p>
+     <p><span class="font-bold">releaseDate:</span>
+     ${phone?.releaseDate || 'No releaseData'}</p>
+     <p><span class="font-bold">Slug:</span>
+     ${phone?.slug}</p>
+     <p><span class="font-bold">Brand:</span>
+     ${phone?.brand}</p>
+    `
+    // show the modal
+    show_details_modal.showModal();
+}
+
 const handleSearch = (isShowAll) =>{
     toggleLoadingSpinner(true);
   const searchField = document.getElementById('search-field');
